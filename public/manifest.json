@@ -1,0 +1,15 @@
+{
+  "short_name": "MeShop",
+  "name": "MeShop",
+  "icons": [
+    {
+      "src": "/static/public/shop-favicon.png",
+      "sizes": "90x90",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
+  "start_url": "/",
+  "display": "standalone"
+}

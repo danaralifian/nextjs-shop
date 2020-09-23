@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'Ubuntu';
+    src: url(~/static/assets/fonts/ubuntu-r-webfont.woff2) format('woff2'),
+      url(~/static/assets/fonts/ubuntu-r-webfont.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+  
+@font-face {
+    font-family: 'Ubuntu';
+    src: url(~/static/assets/fonts/ubuntu-b-webfont.woff2) format('woff2'),
+      url(~/static/assets/fonts/ubuntu-b-webfont.woff) format('woff');
+    font-style: bold;
+    font-weight: 700;
+}
+  
+@font-face {
+    font-family: 'Exo';
+    src: url(~/static/assets/fonts/exo-variablefont_wght-webfont.woff2) format('woff2'),
+      url(~/static/assets/fonts/exo-variablefont_wght-webfont.woff) format('woff');
+    font-style: bold;
+    font-weight: 700;
+}
+
+h1, h2, h3, h4, h5, h6, body {
+    font-family: Ubuntu !important;
+}
+body{
+  background-color: #ffffff;
+}
+
+
