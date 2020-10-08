@@ -41,7 +41,7 @@ function PaymentForm(props) {
             props.enqueueSnackbar('', {
                 content: (key) => (
                 <div key={key} className={classes.snackbar}>
-                    <p>Mohon lengkapi form</p>
+                    <p>Please fill form</p>
                 </div>
                 ),
               })
@@ -87,7 +87,7 @@ function PaymentForm(props) {
                 props.enqueueSnackbar('', {
                     content: (key) => (
                     <div key={key} className={classes.snackbar}>
-                        <p>Terjadi kesalahan</p>
+                        <p>There is an error</p>
                     </div>
                     ),
                 })
@@ -99,8 +99,8 @@ function PaymentForm(props) {
                 content: (key) => (
                 <div key={key} className={classes.snackbar}>
                     {err.response.data.message === `you're unathorized` ? 
-                    <p>Silahkan login terlebih dahulu</p> : 
-                    <p>Terjadi kesalahan pembayaran</p>}
+                    <p>Please login first</p> : 
+                    <p>A payment error occurred</p>}
                 </div>
                 ),
             })
@@ -136,10 +136,10 @@ function PaymentForm(props) {
     return (
         <form>
             <div className={classes.form} style={{padding : '0px 5px'}}>
-                <InputBase className={classes.input} placeholder='Nama Anda' fullWidth value={name} style={{padding : 0}} onChange={(e)=>setName(e.target.value)}/>
+                <InputBase className={classes.input} placeholder='Your Name' fullWidth value={name} style={{padding : 0}} onChange={(e)=>setName(e.target.value)}/>
             </div>
             <div className={classes.form} style={{padding : '0px 5px'}}>
-                <InputBase className={classes.input} placeholder='Alamat' fullWidth value={address} style={{padding : 0}} onChange={(e)=>setAddress(e.target.value)}/>
+                <InputBase className={classes.input} placeholder='Address' fullWidth value={address} style={{padding : 0}} onChange={(e)=>setAddress(e.target.value)}/>
             </div>
             <div className={classes.form} style={{padding : '6px 5px 7px'}}>
                 <CardElement
@@ -163,7 +163,7 @@ function PaymentForm(props) {
             </div>  
             <div style={{display : 'flex', flexDirection : 'column'}}>
             {cardInfo.error &&<small style={{color : '#f44336'}}>{cardInfo.error.message}</small>}
-            <label>Contoh : 4242 4242 4242 4242 - 04/24 - 242 - 42424 (Visa uji coba)</label>
+            <label>Tester : 4242 4242 4242 4242 - 04/24 - 242 - 42424 (Trial visa)</label>
             {/* <label>
                 Jumlah pembayaran akan dikonversi ke mata uang dollar, dengan asumsi kurs Rp14,800. <br/>jumlah pembayaran Anda dalam mata uang dollar
                 <CurrencyFormat value={Math.ceil(props.View.amount/14800)} displayType={'text'} thousandSeparator={true} prefix={'$'} className={classes.price}/>
@@ -173,7 +173,7 @@ function PaymentForm(props) {
                 {isLoading ? 
                 <CircularProgress className={classes.loadingBar}/> : 
                 <React.Fragment>
-                    Bayar <CurrencyFormat value={props.View.amount} displayType={'text'} thousandSeparator={true} prefix={'Rp'} className={classes.price}/>
+                    Pay <CurrencyFormat value={props.View.amount} displayType={'text'} thousandSeparator={true} prefix={'Rp'} className={classes.price}/>
                 </React.Fragment>}
             </ButtonBase>      
         </form>

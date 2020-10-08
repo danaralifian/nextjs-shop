@@ -24,7 +24,7 @@ class CardProduct extends Component {
             this.props.enqueueSnackbar('', {
                 content: (key) => (
                 <div key={key} className={classes.snackbar}>
-                    <p>Silahkan login terlebih dahulu</p>
+                    <p>Please login first</p>
                 </div>
                 ),
             })
@@ -59,7 +59,7 @@ class CardProduct extends Component {
                                 <StarRoundedIcon/>
                                 {data.rating.average_rate}
                             </React.Fragment>}
-                            {data.stats.sold_count !== 0 && ' Terjual '+data.stats.sold_count}
+                            {data.stats.sold_count !== 0 && ' Sold '+data.stats.sold_count}
                         </div>
                     </div> : 
                     <React.Fragment>
@@ -68,10 +68,10 @@ class CardProduct extends Component {
                     </React.Fragment>}
                     {!this.props.skeleton ? 
                     <Button disableRipple color='transparent' fullWidth className={classes.btn} onClick={this.addCart.bind(this, data)}>
-                        Tambah Ke <ShoppingCartOutlinedIcon style={{marginLeft : 5}}/>
+                        Add To <ShoppingCartOutlinedIcon style={{marginLeft : 5}}/>
                     </Button> : 
                     <Button disableRipple color='transparent' fullWidth className={classes.btn}>
-                        Tambah Ke <ShoppingCartOutlinedIcon style={{marginLeft : 5}}/>
+                        Add To <ShoppingCartOutlinedIcon style={{marginLeft : 5}}/>
                     </Button>}
                 </div>
             </div>

@@ -22,19 +22,19 @@ class index extends Component {
     return (
       <React.Fragment>
         <Head>
-          <title>MeShop - Solusi terbaik belanja anda</title>
-          <meta name="description" content="Solusi terbaik belanja anda"></meta>
+          <title>MeShop - Your best shopping solution</title>
+          <meta name="description" content="Your best shopping solution"></meta>
         
         <meta property="og:type" content="website"></meta>
         <meta property="og:url" content="https://demo1.danar.site/"></meta>
         <meta property="og:title" content="MeShop - Checkout"></meta>
-        <meta property="og:description" content="Solusi terbaik belanja anda"></meta>
+        <meta property="og:description" content="Your best shopping solution"></meta>
         <meta property="og:image" content={require("~/public/assets/img/shop-favicon.png")}></meta>
 
         <meta property="twitter:card" content="summary_large_image"></meta>
         <meta property="twitter:url" content="https://metatags.io/"></meta>
         <meta property="twitter:title" content="MeShop - Checkout"></meta>
-        <meta property="twitter:description" content="Solusi terbaik belanja anda"></meta>
+        <meta property="twitter:description" content="Your best shopping solution"></meta>
         <meta property="twitter:image" content={require("~/public/assets/img/shop-favicon.png")}></meta>
         </Head>
         <CheckoutPage/>

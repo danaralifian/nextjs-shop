@@ -42,7 +42,7 @@ class SectionProduct extends Component {
       this.props.enqueueSnackbar('', {
         content: (key) => (
           <div key={key} className={classes.snackbar}>
-            <p>Barang sudah ditambahkan ke keranjang</p>
+            <p>Item has been added to the cart</p>
           </div>
         ),
       })
@@ -50,7 +50,7 @@ class SectionProduct extends Component {
       this.props.enqueueSnackbar('', {
         content: (key) => (
         <div key={key} className={classes.snackbarErr}>
-            <p>Silahkan login terlebih dahulu</p>
+            <p>Please login</p>
         </div>
         ),
       })
@@ -68,7 +68,7 @@ class SectionProduct extends Component {
       this.props.enqueueSnackbar('', {
         content: (key) => (
         <div key={key} className={classes.snackbarErr}>
-            <p>Silahkan login terlebih dahulu</p>
+            <p>Please login</p>
         </div>
         ),
       })
@@ -103,30 +103,30 @@ class SectionProduct extends Component {
             <p className={classes.price}>
               <CurrencyFormat value={productData.data.price} displayType={'text'} thousandSeparator={true} prefix={'Rp'}/>
             </p>
-            <p>Tersedia {productData.data.stock} stok barang</p>
+            <p>Available {productData.data.stock} stock</p>
             <div style={{display : 'flex'}}>
-              <Button className={classes.hollow} onClick={this.addCart.bind(this, productData.data)}>Tambah Ke <ShoppingCartOutlinedIcon/></Button>
-              <Button style={{marginLeft : 10}} onClick={this.checkoutNow.bind(this, productData.data)}>Beli Sekarang</Button>
+              <Button className={classes.hollow} onClick={this.addCart.bind(this, productData.data)}>Add To <ShoppingCartOutlinedIcon/></Button>
+              <Button style={{marginLeft : 10}} onClick={this.checkoutNow.bind(this, productData.data)}>Buy Now</Button>
             </div>
             <ul className={classes.ul}>
               <li>
                 <VerifiedUserIcon/>
-                <p>Product Guarantee, 100% uang kembali, bila rusak atau gak asli</p>
+                <p>Product Guarantee, 100% money back, if damaged or not original</p>
               </li>
               <li>
                 <InfoRoundedIcon/>
-                <p>Bayar sebelum jam 16:00 WIB agar barang dikirim hari ini</p>
+                <p>pay before 16:00 PM  so that item are shipped today</p>
               </li>
               <li>
                 <InfoRoundedIcon/>
-                <p>Waktu Proses 2 Hari Kerja</p>
+                <p>Processing Time 2 Working Days</p>
               </li>
             </ul>
             <div>
               <div style={{display : 'flex', alignItems : 'center', flexWrap : 'wrap'}}>
-                <p style={{cursor : 'pointer',display: 'flex', whiteSpace : 'nowrap'}}>Tambahkan ke Wishlist <FavoriteBorderIcon style={{ marginLeft : 5, marginRight : 10}}/> </p>
+                <p style={{cursor : 'pointer',display: 'flex', whiteSpace : 'nowrap'}}>Add to Wishlist <FavoriteBorderIcon style={{ marginLeft : 5, marginRight : 10}}/> </p>
                 <div style={{display : 'flex', alignItems : 'center'}}>
-                  <p style={{marginRight : 8}}>Bagikan</p>
+                  <p style={{marginRight : 8}}>Share</p>
                   <FacebookShareButton url={Config.host+'/product/'+productData.data.id +'-'+ productData.data.name.replace(/\s+/g, '-')}>
                     <FacebookIcon style={{margin : 3}} size={32} round={true}/>
                   </FacebookShareButton>
@@ -141,20 +141,20 @@ class SectionProduct extends Component {
             </div>
           </Grid>
         </Grid>
-        <h2 className={classes.description}>Spesifikasi Produk</h2>
+        <h2 className={classes.description}>Product Specifications</h2>
         <div className={classes.spec}>
-          <label className={classes.label}>Kategori</label>
+          <label className={classes.label}>Category</label>
           <p className={classes.contentSpec}>{productData.data.category.name}</p>
         </div>
         <div className={classes.spec}>
-          <label className={classes.label}>Kondisi</label>
+          <label className={classes.label}>Condition</label>
           <p className={classes.contentSpec}>{productData.data.condition}</p>
         </div>
         <div className={classes.spec}>
-          <label className={classes.label}>Dikirim Dari</label>
+          <label className={classes.label}>Send from</label>
           <p className={classes.contentSpec}>{productData.data.store.address.city} | {productData.data.store.address.province}</p>
         </div>
-        <h2 className={classes.description}>Deskripsi Produk</h2>
+        <h2 className={classes.description}>Product Description</h2>
         <div>
           {parse(productData.data.description)}
         </div>

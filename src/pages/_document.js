@@ -18,7 +18,7 @@ class MyDocument extends Document {
           <meta charSet="utf-8" />
           <meta
             name='Description'
-            content='Solusi terbaik belanja Anda'
+            content='Your best shopping solution'
           />
           <meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' />
           <link rel="shortcut icon" href={require("~/public/assets/img/shop-favicon.png")} />
@@ -37,12 +37,12 @@ class MyDocument extends Document {
           <meta property="og:type" content={"website"}></meta>
           <meta property="og:url" content={"https://demo1.danar.site/"}></meta>
           <meta property="og:title" content='MeShop'></meta>
-          <meta property="og:description" content='Solusi terbaik belanja Anda'></meta>
+          <meta property="og:description" content='Your best shopping solution'></meta>
   
           <meta property="twitter:card" content="summary_large_image"></meta>
           <meta property="twitter:url" content={"https://demo1.danar.site/"}></meta>
           <meta property="twitter:title" content='MeShop'></meta>
-          <meta property="twitter:description" content='Solusi terbaik belanja Anda'></meta>
+          <meta property="twitter:description" content='Your best shopping solution'></meta>
           <link href="https://fonts.googleapis.com/css2?family=Exo:ital@1&display=swap" rel="stylesheet"></link>
           <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,500;0,700;1,500&display=swap" rel="stylesheet"></link>
         </Head>

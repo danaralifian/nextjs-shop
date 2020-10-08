@@ -37,7 +37,7 @@ function AuthForm(props) {
 
     const signIn=()=>{  
         if(!rgx.test(email)){
-            setErrLogin('Format email salah')
+            setErrLogin('Email format is wrong')
         }else{
             authLogin(email, password)
         }
@@ -45,11 +45,11 @@ function AuthForm(props) {
 
     const signUp=()=>{
         if(!rgx.test(email)){
-            setErrSignUp('Format email salah')
+            setErrSignUp('FEmail format is wrong')
         }else if(!email || !password || !rePassword){
             setErrSignUp('Mohon lengkapi form')
         }else if (password !== rePassword){
-            setErrSignUp('Kata sandi tidak sama')
+            setErrSignUp('Password not match')
         }else{
             setLoading(true)
             axios({
@@ -125,7 +125,7 @@ function AuthForm(props) {
                         <InputBase 
                             type={isPasswordVisible ? 'text' : 'password'} 
                             className={classes.input} 
-                            placeholder='Kata Sandi' 
+                            placeholder='Password' 
                             fullWidth value={password} 
                             onChange={(e)=>setPassword(e.target.value)}
                             endAdornment={
@@ -142,7 +142,7 @@ function AuthForm(props) {
                     <small>{errLogin}</small>
                     <Button fullWidth onClick={signIn} className={classes.btnPrimary} style={{height : 40}}>
                     {isLoading ? 
-                    <CircularProgress className={classes.loadingBar}/> : 'Masuk'}
+                    <CircularProgress className={classes.loadingBar}/> : 'Login'}
                     </Button>
                 </React.Fragment> : 
                 <React.Fragment>
@@ -158,7 +158,7 @@ function AuthForm(props) {
                         <InputBase 
                             type={isPasswordVisible ? 'text' : 'password'} 
                             className={classes.input} 
-                            placeholder='Kata Sandi' 
+                            placeholder='Password' 
                             fullWidth value={password} 
                             onChange={(e)=>setPassword(e.target.value)}
                             endAdornment={
@@ -176,7 +176,7 @@ function AuthForm(props) {
                         <InputBase 
                             type={isRepasswordVisible ? 'text' : 'password'} 
                             className={classes.input} 
-                            placeholder='Ulangi Kata Sandi' 
+                            placeholder='Retype Password' 
                             fullWidth value={rePassword} 
                             onChange={(e)=>setRepassword(e.target.value)}
                             endAdornment={
@@ -193,15 +193,15 @@ function AuthForm(props) {
                     <small>{errSignUp}</small>
                     <Button fullWidth onClick={signUp} className={classes.btnPrimary} style={{height : 40}}>
                     {isLoading ? 
-                    <CircularProgress className={classes.loadingBar}/> : 'Daftar'}
+                    <CircularProgress className={classes.loadingBar}/> : 'Register'}
                     </Button>
                 </React.Fragment>}
                 <small>Email Tester : test@gmail.com , Pass : test123</small>
                 </div>
                 <div style={{padding : '10px 24px', borderTop : '1px solid #ddd'}}>
                 {isLogin ? 
-                    <p style={{textAlign : 'center'}}>Belum Punya Akun? <strong className={classes.btn} onClick={()=>{setIsLogin(false)}}>Daftar</strong></p> : 
-                    <p style={{textAlign : 'center'}}>Sudah Punya Akun? <strong className={classes.btn} onClick={()=>{setIsLogin(true)}}>Masuk</strong></p>
+                    <p style={{textAlign : 'center'}}>Don't have an account yet? <strong className={classes.btn} onClick={()=>{setIsLogin(false)}}>Register</strong></p> : 
+                    <p style={{textAlign : 'center'}}>Have an Account? <strong className={classes.btn} onClick={()=>{setIsLogin(true)}}>Login</strong></p>
                 }
                 </div>
             </div>

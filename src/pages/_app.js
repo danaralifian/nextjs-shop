@@ -14,7 +14,7 @@ import Config from '~/utils/Config'
 class MyApp extends App {
 
   render() {
-    const stripePromise = loadStripe('STRIPE_KEY');
+    const stripePromise = loadStripe('pk_test_51HQKwpAff9TCpJaUETjjnOqjtJ5eiYhJHhjbLMThL4o0QYY8wT93ZmjFcyy284pXMHULLe1WnqBwlYPNbJ2r1I3900LEeQMJn3');
     const { Component, pageProps } = this.props
     const styles = {
       success: { backgroundColor: 'purple' },

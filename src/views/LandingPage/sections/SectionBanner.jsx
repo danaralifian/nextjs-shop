@@ -19,12 +19,12 @@ class SectionIntro extends Component {
     super(props);
     this.state = {
       categories : [
-        {icon : energy, label : 'Elektronik'},
+        {icon : energy, label : 'Electronic'},
         {icon : smartphone, label : 'Handphone'},
-        {icon : tshirt, label : 'Pakaian'},
-        {icon : shoe, label : 'Sepatu'},
-        {icon : gift, label : 'Hiburan'},
-        {icon : lifestyle, label : 'Sehari-hari'},
+        {icon : tshirt, label : 'T-shirt'},
+        {icon : shoe, label : 'Shoes'},
+        {icon : gift, label : 'Entertainment'},
+        {icon : lifestyle, label : 'Lifestyle'},
       ]
     }
   }
@@ -47,7 +47,7 @@ class SectionIntro extends Component {
         </div>
         </ScrollContainer>
         <img src={banner} className={classes.banner} alt='banner'/>
-        <p className={classes.promo}>DAPATKAN DISKON 50%</p>
+        <p className={classes.promo}>GET DISCOUNT 50%</p>
       </div>
     )
   }

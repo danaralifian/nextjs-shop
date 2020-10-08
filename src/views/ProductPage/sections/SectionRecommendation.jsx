@@ -51,7 +51,7 @@ class SectionRecommendation extends Component {
     return (
       <div>
         <div style={{display : 'flex', alignItems : 'center', justifyContent : 'space-between'}}>
-          <h2 className={classes.sectionTitle}>Rekomendasi untuk Anda</h2>
+          <h2 className={classes.sectionTitle}>Recommendations for you</h2>
         </div>
         <Grid container spacing={2}>
           {this.state.isFetched && products.map((obj,key)=>

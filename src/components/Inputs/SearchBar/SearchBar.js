@@ -12,7 +12,7 @@ export default function SearchBar(props) {
         <React.Fragment>
             <InputBase
              className={classes.input}
-             placeholder='Aku mau belanja'/>
+             placeholder='I want to buy'/>
         </React.Fragment>
     )
 }

@@ -6,6 +6,7 @@ import CloseRoundedIcon from '@material-ui/icons/CloseRounded'
 import CurrencyFormat from 'react-currency-format'
 import _ from 'lodash'
 import { withSnackbar } from 'notistack'
+import Cookies from 'js-cookie'
 import PaymentForm from '~/src/components/PaymentForm'
 
 import Button from "~/src/components/CustomButtons/Button.js"
@@ -80,19 +81,29 @@ class SectionCart extends Component {
 
   checkout=()=>{
     const { classes } = this.props
-    if(this.props.View.cartItems.length === 0){
+    if(Cookies.get('accessToken')){
+      if(this.props.View.cartItems.length === 0){
+        this.props.enqueueSnackbar('', {
+          content: (key) => (
+          <div key={key} className={classes.snackbar}>
+            <p>The shopping cart is empty, please add items</p>
+          </div>
+          ),
+        })
+      }else{
+        this.setState({
+          open : true
+        },()=>{
+          this.props.setAmount(this.state.total)
+        })
+      }
+    }else{
       this.props.enqueueSnackbar('', {
         content: (key) => (
         <div key={key} className={classes.snackbar}>
-          <p>Keranjang belanja kosong, silahkan tambahkan barang</p>
+          <p>Please login first</p>
         </div>
         ),
-      })
-    }else{
-      this.setState({
-        open : true
-      },()=>{
-        this.props.setAmount(this.state.total)
       })
     }
   }
@@ -109,7 +120,7 @@ class SectionCart extends Component {
       this.props.enqueueSnackbar('', {
         content: (key) => (
         <div key={key} className={classes.snackbar}>
-            <p>Pembayaran anda berhasil</p>
+            <p>Your payment was successful</p>
         </div>
         ),
       })
@@ -126,7 +137,7 @@ class SectionCart extends Component {
     const { classes } = this.props
     return (
       <div>
-        <h2 className={classes.sectionTitle}>Keranjang Belanja</h2>
+        <h2 className={classes.sectionTitle}>Shopping Cart</h2>
         <Grid container spacing={2}>
           <Grid item xs={12} md={8}>
             {this.state.products.map((obj,key)=>
@@ -135,13 +146,13 @@ class SectionCart extends Component {
                 <img src={obj.images.large_urls[0]} alt={obj.name} className={classes.imageCart}/>
                 </div>
                 <div style={{width : '80%'}}>
-                  <p className={classes.name}>{obj.name} Speaker Music JBL Charge 3 - JBL Charge 3 For All Smartphone and Music</p>
+                  <p className={classes.name}>{obj.name}</p>
                   <strong>
                     <CurrencyFormat value={obj.price*obj.qty} displayType={'text'} thousandSeparator={true} prefix={'Rp'}/>
                   </strong><br/>
                   <div className={classes.counterWrapper}>
                     <Button color='transparent' className={classes.btnDelete} onClick={this.handleDelete.bind(this, obj.id)}>
-                      Hapus
+                      Delete
                     </Button>
                     <Button
                       className={classes.btnDecreament}
@@ -163,13 +174,13 @@ class SectionCart extends Component {
           </Grid>
           <Grid item xs={12} md={4}>
             <div style={{border : '1px solid #ddd', borderRadius : 5, padding : 15}}>
-              <p style={{fontSize : 16}}><strong>Total Belanja</strong></p>
-              <p style={{margin : 0}}>Jumlah barang  : {this.state.totalItem}</p>
+              <p style={{fontSize : 16}}><strong>Total Payment</strong></p>
+              <p style={{margin : 0}}>Total item  : {this.state.totalItem}</p>
               <p style={{margin : 0, fontWeight : 'bold', fontSize : 20, marginBottom : 10}}>
                 <CurrencyFormat value={this.state.total} displayType={'text'} thousandSeparator={true} prefix={'Rp'} className={classes.price}/>
               </p>
               <Button fullWidth style={{textTransform : 'capitalize'}} onClick={this.checkout}>
-                Pesan Sekarang
+                Order now
               </Button>
             </div>
           </Grid>
@@ -180,7 +191,7 @@ class SectionCart extends Component {
               <CloseRoundedIcon/>
             </ButtonBase>
             <DialogTitle className={classes.payment} style={{paddingBottom : 0}}>
-              Detail Pembayaran
+              Payment Details
             </DialogTitle>
             <DialogContent style={{padding : 24}}>
               <PaymentForm 

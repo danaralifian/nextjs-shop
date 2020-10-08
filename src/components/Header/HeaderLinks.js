@@ -32,6 +32,7 @@ function HeaderLinks(props) {
     Cookies.remove('accessToken')
     Cookies.remove('email')
     Cookies.remove('refreshToken')
+    localStorage.removeItem('cart')
     Router.push('/')
   }
 
@@ -77,12 +78,12 @@ function HeaderLinks(props) {
       {!Cookies.get('accessToken') ?
       <ListItem className={classes.listItem}>
         <Button onClick={handleOpen} style={{color : '#fff',borderRadius : 8, textTransform : 'capitalize', fontWeight : 'bold'}} className={classes.navLink} >
-          Masuk
+          Login
         </Button>
       </ListItem> : 
       <ListItem className={classes.listItem}>
       <Button onClick={handleLogout} style={{color : '#fff',borderRadius : 8, textTransform : 'capitalize', fontWeight : 'bold'}} className={classes.navLink} >
-        Keluar
+        Logout
       </Button>
     </ListItem>}
     </List>

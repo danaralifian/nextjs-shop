@@ -51,11 +51,11 @@ class SectionProduct extends Component {
     return (
       <div>
         <div style={{display : 'flex', alignItems : 'center', justifyContent : 'space-between'}}>
-        <h2 className={classes.sectionTitle}>Penawaran Terbaik</h2>
+        <h2 className={classes.sectionTitle}>Best Deals</h2>
         <div style={{display : 'flex'}}>
           <Button color='transparent' style={{textTransform : 'capitalize', padding : 12}}>
             <SortOutlinedIcon/>
-            Urutkan
+            Sort by
           </Button>
           <Button color='transparent' style={{textTransform : 'capitalize', padding : 12}}>
             <BsFunnel/>
